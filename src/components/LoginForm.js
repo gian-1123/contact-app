@@ -1,0 +1,1 @@
+const { username, password } = req.body; // Ensure correct mapping of username and password fields
