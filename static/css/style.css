@@ -1,0 +1,93 @@
+:root {
+    --dark-color: #1a1a1a;
+    --green-color: #28a745;
+    --red-color: #dc3545;
+    --light-color: #f8f9fa;
+    --green-hover: #218838;
+    --red-hover: #c82333;
+}
+
+body {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    font-family: 'Arial', sans-serif;
+    padding-top: 60px;
+}
+
+.navbar {
+    background-color: var(--dark-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand, .nav-link {
+    color: var(--light-color) !important;
+}
+
+.btn-success {
+    background-color: var(--green-color);
+    border-color: var(--green-color);
+}
+
+.btn-success:hover {
+    background-color: var(--green-hover);
+    border-color: var(--green-hover);
+}
+
+.btn-danger {
+    background-color: var(--red-color);
+    border-color: var(--red-color);
+}
+
+.btn-danger:hover {
+    background-color: var(--red-hover);
+    border-color: var(--red-hover);
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--light-color);
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--light-color);
+    border-color: var(--green-color);
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.alert-success {
+    background-color: rgba(40, 167, 69, 0.2);
+    border-color: rgba(40, 167, 69, 0.3);
+    color: var(--green-color);
+}
+
+.alert-danger {
+    background-color: rgba(220, 53, 69, 0.2);
+    border-color: rgba(220, 53, 69, 0.3);
+    color: var(--red-color);
+}
+
+.contact-card {
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.auth-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.page-header {
+    border-bottom: 2px solid var(--green-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+} 

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - Contact Manager{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card auth-form">
+            <div class="card-body">
+                <h2 class="card-title text-center page-header">Login</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ form.username.id_for_label }}">Username</label>
+                        <input type="text" name="username" id="{{ form.username.id_for_label }}" class="form-control" required>
+                        {% if form.username.errors %}
+                            <small class="text-danger">{{ form.username.errors.0 }}</small>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.password.id_for_label }}">Password</label>
+                        <input type="password" name="password" id="{{ form.password.id_for_label }}" class="form-control" required>
+                        {% if form.password.errors %}
+                            <small class="text-danger">{{ form.password.errors.0 }}</small>
+                        {% endif %}
+                    </div>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    <button type="submit" class="btn btn-success btn-block">Login</button>
+                </form>
+                <div class="text-center mt-3">
+                    <p>Don't have an account? <a href="{% url 'register' %}" class="text-success">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

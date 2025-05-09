@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Register - Contact Manager{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card auth-form">
+            <div class="card-body">
+                <h2 class="card-title text-center page-header">Register</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ form.username.id_for_label }}">Username</label>
+                        {{ form.username }}
+                        {% if form.username.errors %}
+                            <small class="text-danger">{{ form.username.errors.0 }}</small>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.email.id_for_label }}">Email</label>
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                            <small class="text-danger">{{ form.email.errors.0 }}</small>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.password1.id_for_label }}">Password</label>
+                        {{ form.password1 }}
+                        {% if form.password1.errors %}
+                            <small class="text-danger">{{ form.password1.errors.0 }}</small>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
+                        {{ form.password2 }}
+                        {% if form.password2.errors %}
+                            <small class="text-danger">{{ form.password2.errors.0 }}</small>
+                        {% endif %}
+                    </div>
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {{ form.non_field_errors.0 }}
+                        </div>
+                    {% endif %}
+                    <button type="submit" class="btn btn-success btn-block">Register</button>
+                </form>
+                <div class="text-center mt-3">
+                    <p>Already have an account? <a href="{% url 'login' %}" class="text-success">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

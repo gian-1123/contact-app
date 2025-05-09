@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}My Contacts - Contact Manager{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="page-header">My Contacts</h2>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-12">
+        <a href="{% url 'contact_create' %}" class="btn btn-success">
+            <i class="fas fa-plus"></i> Add New Contact
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    {% if contacts %}
+        {% for contact in contacts %}
+            <div class="col-md-4 mb-4">
+                <div class="card contact-card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ contact.name }} {{ contact.last_name }}</h5>
+                        <p class="card-text">
+                            <strong>Phone:</strong> {{ contact.telephone }}
+                        </p>
+                        <div class="btn-group">
+                            <a href="{% url 'contact_update' contact.id %}" class="btn btn-sm btn-success">Edit</a>
+                            <a href="{% url 'contact_delete' contact.id %}" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Added: {{ contact.created_at|date:"M d, Y" }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="col-md-12">
+            <div class="alert alert-info">
+                You don't have any contacts yet. <a href="{% url 'contact_create' %}" class="alert-link">Add your first contact!</a>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %} 
