@@ -1,0 +1,1 @@
+if (username === 'correct_username' && password === 'correct_password') {
