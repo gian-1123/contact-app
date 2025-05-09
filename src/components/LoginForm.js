@@ -1,0 +1,1 @@
+if (usernameInput === correctUsername && passwordInput === correctPassword) {
